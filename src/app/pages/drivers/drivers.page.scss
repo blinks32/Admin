@@ -1,0 +1,21 @@
+.message {
+    padding: 10px !important;
+    border-radius: 10px !important;
+    margin-bottom: 4px !important;
+    white-space: pre-wrap;
+    
+}
+
+.my-message {
+    background: var(--ion-color-tertiary);
+    color: #fff;
+    animation-name: slide-top;
+    animation-duration: 0.5s;
+}
+ 
+ 
+.time {
+    color: #dfdfdf;
+    float: right;
+    font-size: small;
+}
