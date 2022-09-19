@@ -36,15 +36,30 @@
 </div>
 
 <div *ngIf="!hideSkeleton">
-  <ion-item class="message" lines="none" *ngFor="let message of triphistory | async">
-    <ion-thumbnail>
+  <ion-item class="message" *ngFor="let message of triphistory | async">
+
       <ion-avatar>
         <img *ngIf="message.image; else placeholder_avatar;" [src]="message.image" />
+        <ng-template #placeholder_avatar>
+          <div class="fallback">
+            <ion-icon name="person" color='primary' slot="start"></ion-icon>
+          </div>
+        </ng-template>
       </ion-avatar>
-    </ion-thumbnail>
-        <ion-item-header>{{ message.name }}</ion-item-header>
-        <span>{{ message.phone }}</span>
-        <div class="time ion-text-right"><br>{{ message.createdAt?.toMillis() | date:'short' }}</div>
+
+    <ion-col size="9"  class="message">
+    <ion-label>
+      <h1>{{ message.name }}</h1>
+      <p>{{ message.phone }}</p>
+    </ion-label>
+    <div class="time ion-text-right"><br>{{ message.createdAt?.toMillis() | date:'short' }}</div>
+  </ion-col>
+  <ion-col size="3">
+    <ion-button size='small' type="submit" color="primary" expand="full">
+      <!-- <ion-icon color='light' slot="end" name="arrow-forward"></ion-icon> -->
+        View
+   </ion-button>
+  </ion-col>
    </ion-item>
 </div>
 

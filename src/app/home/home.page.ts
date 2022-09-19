@@ -99,7 +99,7 @@ export class HomePage implements OnInit {
   numRiders: number;
 
 
-  constructor(private auth: Auth, public map: MapService, private firestore: Firestore, private readonly database: AvatarService) {}
+  constructor(private auth: Auth, public map: MapService, private firestore: Firestore, private readonly database: AvatarService, public nav: NavController) {}
 
 
   //start the scene
@@ -139,6 +139,8 @@ this.database.getRiders().subscribe(async (d)=>{
 
 
 
+
+
 this.auth.onAuthStateChanged((user)=>{
 
 
@@ -151,6 +153,18 @@ this.auth.onAuthStateChanged((user)=>{
 
   }
 
+
+gotoDrivers(){
+  this.nav.navigateRoot('tabs/drivers'); 
+}
+
+gotoRiders(){
+  this.nav.navigateRoot('tabs/customers'); 
+}
+
+gotoProfile(){
+  this.nav.navigateRoot('tabs/customers'); 
+}
 
 
 }
