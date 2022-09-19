@@ -45,6 +45,8 @@ export class AvatarService {
      this.getUserProfile(user).subscribe(async (data) => {
       this.profile = data;
 
+      console.log(data);
+
       if (this.profile){
       if (!this.profile.Access)
       this.router.navigateByUrl('details'); 
@@ -64,7 +66,7 @@ export class AvatarService {
   }
 
    getUserProfile(user) {
-    const userDocRef = doc(this.firestore, `Drivers/${user.uid}`);
+    const userDocRef = doc(this.firestore, `Admins/${user.uid}`);
      return docData(userDocRef);
   }
 
@@ -331,6 +333,11 @@ export class AvatarService {
  
    getMessage() {
     const userDocRef = collection(this.firestore, `Messages/${this.auth.currentUser.uid}/messages`);
+    return collectionData(userDocRef);
+  }
+
+  getTrips() {
+    const userDocRef = collection(this.firestore, `AllRides`);
     return collectionData(userDocRef);
   }
 
