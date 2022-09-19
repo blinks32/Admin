@@ -47,12 +47,6 @@ export class DetailsPage implements OnInit {
       email: new FormControl(null, {
         validators: [Validators.required, Validators.minLength(1), Validators.maxLength(200)]
       }),
-      car: new FormControl(null, {
-        validators: [Validators.required, Validators.minLength(1), Validators.maxLength(200)]
-      }),
-      plate: new FormControl(null, {
-        validators: [Validators.required, Validators.minLength(1), Validators.maxLength(200)]
-      }),
     });
   }
   
